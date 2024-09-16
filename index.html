@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hystoria</title>
+
+    <style>
+        body {
+            height: 800vh;
+            display: block;
+        }
+
+        .screen-height {
+            position: fixed;
+        }
+    </style>
 </head>
 <body>
     <h1>This is Hystoria</h1>
+    <span class="screen-height">Screen Height: </span>
+
+
+    <script>
+        let screenHeightElem = document.querySelector(".screen-height");
+        let screenHeight;
+        document.addEventListener("scroll", function () {
+            screenHeight = document.documentElement.scrollTop;
+            screenHeightElem.innerHTML = "Screen Height: " + screenHeight;
+        })
+    </script>
 </body>
 </html>
