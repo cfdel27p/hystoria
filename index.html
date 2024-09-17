@@ -14,12 +14,27 @@
         .screen-height {
             position: fixed;
         }
+
+        .knob {
+            background-color: pink;
+            display: inline;
+            width: 48px;
+            height: 48px;
+            text-align: center;
+            vertical-align: center;
+            line-height: 48px;
+            border-radius: 30%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>This is Hystoria</h1>
     <span class="screen-height">Screen Height: </span>
 
+    <div class="knob">A</div>
 
     <script>
         let screenHeightElem = document.querySelector(".screen-height");
