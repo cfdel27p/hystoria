@@ -27,6 +27,16 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 200ms ease;
+        }
+
+        .knob.open {
+            background-color: green;
+            transform: rotate(-90deg);
+            bottom: 50px;
+            transition: all 200ms ease;
         }
     </style>
 </head>
@@ -36,7 +46,21 @@
 
     <div class="knob">A</div>
 
+
+
     <script>
+
+        function toggleKnob(elem) {
+            let knobClassList = elem.classList;
+            console.log(knobClassList);
+            knobClassList.toggle("open");
+        }
+
+        let knobButton = document.querySelector(".knob");
+        knobButton.addEventListener("click", function () {
+            toggleKnob(this);
+        });
+
         let screenHeightElem = document.querySelector(".screen-height");
         let screenHeight;
         document.addEventListener("scroll", function () {
