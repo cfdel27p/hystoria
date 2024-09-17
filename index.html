@@ -6,6 +6,12 @@
     <title>Hystoria</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             height: 800vh;
             display: block;
@@ -25,20 +31,47 @@
             line-height: 48px;
             border-radius: 30%;
             position: fixed;
-            bottom: 20px;
+            bottom: 40px;
             right: 20px;
             cursor: pointer;
             user-select: none;
-            transition: all 200ms ease;
+            transition: all 200ms ease-in-out;
+            z-index: 5;
+            transform: rotate(0deg) translateY(50%);
         }
 
         .knob.open {
             background-color: green;
-            transform: rotate(-90deg);
-            bottom: 50px;
+            transform: rotate(-90deg) translateX(-50%);
+            bottom: 60px;
             border-radius: 50%;
-            transition: all 200ms ease;
+            transition: all 200ms ease-in;
         }
+
+        .navBar {
+            background-color: yellow;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: 2;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            transform: translateY(100%);
+            transition: all 200ms ease-in;
+        }
+
+        .navBar.open {
+            transform: translateY(0%);
+            transition: all 200ms ease-in;
+        }
+
+        .navBar .nav-item {
+            width: 20%;
+            text-align: center;
+            line-height: 60px;
+        }
+
     </style>
 </head>
 <body>
@@ -46,7 +79,12 @@
     <span class="screen-height">Screen Height: </span>
 
     <div class="knob">A</div>
-
+    <nav class="navBar">
+        <div class="nav-item">A</div>
+        <div class="nav-item">B</div>
+        <div class="nav-item">C</div>
+        <div class="nav-item">D</div>
+    </nav>
 
 
     <script>
@@ -55,9 +93,11 @@
             let knobClassList = elem.classList;
             console.log(knobClassList);
             knobClassList.toggle("open");
+            navBar.classList.toggle("open");
         }
 
         let knobButton = document.querySelector(".knob");
+        let navBar = document.querySelector(".navBar");
         knobButton.addEventListener("click", function () {
             toggleKnob(this);
         });
